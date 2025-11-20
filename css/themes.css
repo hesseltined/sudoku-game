@@ -1,0 +1,622 @@
+/**
+ * Sudoku Game - Theme Styles
+ * Version: 1.0.0
+ * Date: 2025-11-20
+ * Author: Doug Hesseltine
+ * Copyright: Technologist.Services 2025
+ */
+
+/* ==================== CLASSIC THEME ==================== */
+body[data-theme="classic"] {
+    background: linear-gradient(135deg, #f4f1e8 0%, #e8dcc4 100%);
+    color: #333;
+}
+
+body[data-theme="classic"] .back-button {
+    background: #4a90e2;
+    color: #fff;
+    border: 2px solid #4a90e2;
+}
+
+body[data-theme="classic"] .back-button:hover {
+    background: #357abd;
+    border-color: #357abd;
+}
+
+body[data-theme="classic"] h1 {
+    color: #2c3e50;
+}
+
+body[data-theme="classic"] .controls {
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid #d4c4a8;
+}
+
+body[data-theme="classic"] #player-name,
+body[data-theme="classic"] select {
+    background: #fff;
+    color: #333;
+    border-color: #bbb;
+}
+
+body[data-theme="classic"] #player-name:focus,
+body[data-theme="classic"] select:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+body[data-theme="classic"] #difficulty-slider {
+    background: #d4c4a8;
+}
+
+body[data-theme="classic"] #difficulty-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4a90e2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+body[data-theme="classic"] #difficulty-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #4a90e2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+body[data-theme="classic"] .btn {
+    background: #fff;
+    color: #333;
+    border-color: #bbb;
+}
+
+body[data-theme="classic"] .btn:hover:not(:disabled) {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+body[data-theme="classic"] .btn-primary {
+    background: #4a90e2;
+    color: #fff;
+    border-color: #4a90e2;
+}
+
+body[data-theme="classic"] .btn-primary:hover:not(:disabled) {
+    background: #357abd;
+    border-color: #357abd;
+}
+
+body[data-theme="classic"] .hud {
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid #d4c4a8;
+}
+
+body[data-theme="classic"] .board {
+    background: #fff;
+    border: 3px solid #2c3e50;
+}
+
+body[data-theme="classic"] .cell {
+    background: #fdfbf7;
+    color: #333;
+    border-color: #ccc;
+}
+
+body[data-theme="classic"] .cell.given {
+    background: #e8dcc4;
+    color: #2c3e50;
+}
+
+body[data-theme="classic"] .cell.selected {
+    background: #d4ebff;
+    box-shadow: inset 0 0 0 3px #4a90e2;
+}
+
+body[data-theme="classic"] .cell:hover:not(.given):not(.completed) {
+    background: #f0f0f0;
+}
+
+body[data-theme="classic"] .pause-overlay {
+    background: rgba(244, 241, 232, 0.95);
+}
+
+body[data-theme="classic"] .pause-message {
+    background: rgba(255, 255, 255, 0.9);
+    border: 3px solid #2c3e50;
+}
+
+body[data-theme="classic"] .number-btn {
+    background: #fff;
+    color: #333;
+    border-color: #bbb;
+}
+
+body[data-theme="classic"] .number-btn:hover {
+    background: #4a90e2;
+    color: #fff;
+    border-color: #4a90e2;
+}
+
+body[data-theme="classic"] .size-tab,
+body[data-theme="classic"] .difficulty-tab {
+    background: #fff;
+    color: #333;
+    border-color: #bbb;
+}
+
+body[data-theme="classic"] .size-tab.active,
+body[data-theme="classic"] .difficulty-tab.active {
+    background: #4a90e2;
+    color: #fff;
+    border-color: #4a90e2;
+}
+
+body[data-theme="classic"] #leaderboard-table th,
+body[data-theme="classic"] #leaderboard-table td {
+    border-bottom-color: #d4c4a8;
+}
+
+body[data-theme="classic"] footer {
+    border-top-color: #d4c4a8;
+    color: #666;
+}
+
+body[data-theme="classic"] .completion-message {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #4a90e2;
+    color: #2c3e50;
+}
+
+/* Thicker region borders for classic theme */
+body[data-theme="classic"] .board.size-4 .cell:nth-child(2),
+body[data-theme="classic"] .board.size-4 .cell:nth-child(6),
+body[data-theme="classic"] .board.size-4 .cell:nth-child(10),
+body[data-theme="classic"] .board.size-4 .cell:nth-child(14),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(3),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(9),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(15),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(21),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(27),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(33),
+body[data-theme="classic"] .board.size-9 .cell:nth-child(9n+3),
+body[data-theme="classic"] .board.size-9 .cell:nth-child(9n+6) {
+    border-right: 4px solid #2c3e50 !important;
+}
+
+body[data-theme="classic"] .board.size-4 .cell:nth-child(5),
+body[data-theme="classic"] .board.size-4 .cell:nth-child(6),
+body[data-theme="classic"] .board.size-4 .cell:nth-child(7),
+body[data-theme="classic"] .board.size-4 .cell:nth-child(8),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(7),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(8),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(9),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(10),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(11),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(12),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(19),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(20),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(21),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(22),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(23),
+body[data-theme="classic"] .board.size-6 .cell:nth-child(24),
+body[data-theme="classic"] .board.size-9 .cell:nth-child(n+19):nth-child(-n+27),
+body[data-theme="classic"] .board.size-9 .cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 4px solid #2c3e50 !important;
+}
+
+/* ==================== DARK MODE THEME ==================== */
+body[data-theme="dark"] {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1d3e 100%);
+    color: #00ff88;
+}
+
+body[data-theme="dark"] .back-button {
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+    border: 2px solid #00ff88;
+}
+
+body[data-theme="dark"] .back-button:hover {
+    background: rgba(0, 255, 136, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+body[data-theme="dark"] h1 {
+    color: #00d4ff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+body[data-theme="dark"] .controls {
+    background: rgba(26, 29, 62, 0.6);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+}
+
+body[data-theme="dark"] #player-name,
+body[data-theme="dark"] select {
+    background: rgba(10, 14, 39, 0.8);
+    color: #00ff88;
+    border-color: #00ff88;
+}
+
+body[data-theme="dark"] #player-name:focus,
+body[data-theme="dark"] select:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    outline: none;
+}
+
+body[data-theme="dark"] #difficulty-slider {
+    background: rgba(0, 255, 136, 0.2);
+}
+
+body[data-theme="dark"] #difficulty-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #00ff88;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+body[data-theme="dark"] #difficulty-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #00ff88;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+body[data-theme="dark"] .btn {
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+    border-color: #00ff88;
+}
+
+body[data-theme="dark"] .btn:hover:not(:disabled) {
+    background: rgba(0, 255, 136, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+}
+
+body[data-theme="dark"] .btn-primary {
+    background: rgba(0, 212, 255, 0.2);
+    color: #00d4ff;
+    border-color: #00d4ff;
+}
+
+body[data-theme="dark"] .btn-primary:hover:not(:disabled) {
+    background: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+}
+
+body[data-theme="dark"] .hud {
+    background: rgba(26, 29, 62, 0.6);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+}
+
+body[data-theme="dark"] .board {
+    background: rgba(10, 14, 39, 0.8);
+    border: 3px solid #00ff88;
+}
+
+body[data-theme="dark"] .cell {
+    background: rgba(26, 29, 62, 0.8);
+    color: #00ff88;
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+body[data-theme="dark"] .cell.given {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+}
+
+body[data-theme="dark"] .cell.selected {
+    background: rgba(0, 255, 136, 0.2);
+    box-shadow: inset 0 0 0 3px #00ff88;
+}
+
+body[data-theme="dark"] .cell:hover:not(.given):not(.completed) {
+    background: rgba(0, 255, 136, 0.1);
+}
+
+body[data-theme="dark"] .pause-overlay {
+    background: rgba(10, 14, 39, 0.95);
+}
+
+body[data-theme="dark"] .pause-message {
+    background: rgba(26, 29, 62, 0.9);
+    border: 3px solid #00ff88;
+}
+
+body[data-theme="dark"] .number-btn {
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+    border-color: #00ff88;
+}
+
+body[data-theme="dark"] .number-btn:hover {
+    background: rgba(0, 212, 255, 0.2);
+    color: #00d4ff;
+    border-color: #00d4ff;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+body[data-theme="dark"] .size-tab,
+body[data-theme="dark"] .difficulty-tab {
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+    border-color: #00ff88;
+}
+
+body[data-theme="dark"] .size-tab.active,
+body[data-theme="dark"] .difficulty-tab.active {
+    background: rgba(0, 212, 255, 0.2);
+    color: #00d4ff;
+    border-color: #00d4ff;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+body[data-theme="dark"] #leaderboard-table th,
+body[data-theme="dark"] #leaderboard-table td {
+    border-bottom-color: rgba(0, 255, 136, 0.2);
+}
+
+body[data-theme="dark"] footer {
+    border-top-color: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+}
+
+body[data-theme="dark"] .completion-message {
+    background: rgba(26, 29, 62, 0.95);
+    border-color: #00d4ff;
+    color: #00ff88;
+}
+
+/* Thicker region borders for dark theme */
+body[data-theme="dark"] .board.size-4 .cell:nth-child(2),
+body[data-theme="dark"] .board.size-4 .cell:nth-child(6),
+body[data-theme="dark"] .board.size-4 .cell:nth-child(10),
+body[data-theme="dark"] .board.size-4 .cell:nth-child(14),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(3),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(9),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(15),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(21),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(27),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(33),
+body[data-theme="dark"] .board.size-9 .cell:nth-child(9n+3),
+body[data-theme="dark"] .board.size-9 .cell:nth-child(9n+6) {
+    border-right: 4px solid #00ff88 !important;
+}
+
+body[data-theme="dark"] .board.size-4 .cell:nth-child(5),
+body[data-theme="dark"] .board.size-4 .cell:nth-child(6),
+body[data-theme="dark"] .board.size-4 .cell:nth-child(7),
+body[data-theme="dark"] .board.size-4 .cell:nth-child(8),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(7),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(8),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(9),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(10),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(11),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(12),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(19),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(20),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(21),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(22),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(23),
+body[data-theme="dark"] .board.size-6 .cell:nth-child(24),
+body[data-theme="dark"] .board.size-9 .cell:nth-child(n+19):nth-child(-n+27),
+body[data-theme="dark"] .board.size-9 .cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 4px solid #00ff88 !important;
+}
+
+/* ==================== OCEAN THEME ==================== */
+body[data-theme="ocean"] {
+    background: linear-gradient(135deg, #0a4d68 0%, #088395 50%, #0a4d68 100%);
+    color: #e0f7fa;
+}
+
+body[data-theme="ocean"] .back-button {
+    background: rgba(5, 191, 219, 0.2);
+    color: #05bfdb;
+    border: 2px solid #05bfdb;
+}
+
+body[data-theme="ocean"] .back-button:hover {
+    background: rgba(5, 191, 219, 0.3);
+    box-shadow: 0 0 15px rgba(5, 191, 219, 0.4);
+}
+
+body[data-theme="ocean"] h1 {
+    color: #7dd3fc;
+    text-shadow: 0 0 20px rgba(125, 211, 252, 0.5);
+}
+
+body[data-theme="ocean"] .controls {
+    background: rgba(8, 131, 149, 0.3);
+    border: 2px solid rgba(5, 191, 219, 0.4);
+}
+
+body[data-theme="ocean"] #player-name,
+body[data-theme="ocean"] select {
+    background: rgba(10, 77, 104, 0.8);
+    color: #e0f7fa;
+    border-color: #05bfdb;
+}
+
+body[data-theme="ocean"] #player-name:focus,
+body[data-theme="ocean"] select:focus {
+    border-color: #7dd3fc;
+    box-shadow: 0 0 10px rgba(125, 211, 252, 0.4);
+    outline: none;
+}
+
+body[data-theme="ocean"] #difficulty-slider {
+    background: rgba(5, 191, 219, 0.3);
+}
+
+body[data-theme="ocean"] #difficulty-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #05bfdb;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(5, 191, 219, 0.6);
+}
+
+body[data-theme="ocean"] #difficulty-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #05bfdb;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(5, 191, 219, 0.6);
+}
+
+body[data-theme="ocean"] .btn {
+    background: rgba(5, 191, 219, 0.15);
+    color: #05bfdb;
+    border-color: #05bfdb;
+}
+
+body[data-theme="ocean"] .btn:hover:not(:disabled) {
+    background: rgba(5, 191, 219, 0.25);
+    box-shadow: 0 4px 12px rgba(5, 191, 219, 0.3);
+}
+
+body[data-theme="ocean"] .btn-primary {
+    background: rgba(125, 211, 252, 0.2);
+    color: #7dd3fc;
+    border-color: #7dd3fc;
+}
+
+body[data-theme="ocean"] .btn-primary:hover:not(:disabled) {
+    background: rgba(125, 211, 252, 0.3);
+    box-shadow: 0 4px 12px rgba(125, 211, 252, 0.4);
+}
+
+body[data-theme="ocean"] .hud {
+    background: rgba(8, 131, 149, 0.4);
+    border: 2px solid rgba(5, 191, 219, 0.4);
+}
+
+body[data-theme="ocean"] .board {
+    background: rgba(10, 77, 104, 0.6);
+    border: 3px solid #05bfdb;
+}
+
+body[data-theme="ocean"] .cell {
+    background: rgba(8, 131, 149, 0.5);
+    color: #e0f7fa;
+    border-color: rgba(5, 191, 219, 0.3);
+}
+
+body[data-theme="ocean"] .cell.given {
+    background: rgba(125, 211, 252, 0.2);
+    color: #7dd3fc;
+}
+
+body[data-theme="ocean"] .cell.selected {
+    background: rgba(5, 191, 219, 0.3);
+    box-shadow: inset 0 0 0 3px #05bfdb;
+}
+
+body[data-theme="ocean"] .cell:hover:not(.given):not(.completed) {
+    background: rgba(5, 191, 219, 0.2);
+}
+
+body[data-theme="ocean"] .pause-overlay {
+    background: rgba(10, 77, 104, 0.95);
+}
+
+body[data-theme="ocean"] .pause-message {
+    background: rgba(8, 131, 149, 0.9);
+    border: 3px solid #05bfdb;
+}
+
+body[data-theme="ocean"] .number-btn {
+    background: rgba(5, 191, 219, 0.15);
+    color: #05bfdb;
+    border-color: #05bfdb;
+}
+
+body[data-theme="ocean"] .number-btn:hover {
+    background: rgba(125, 211, 252, 0.25);
+    color: #7dd3fc;
+    border-color: #7dd3fc;
+    box-shadow: 0 0 15px rgba(125, 211, 252, 0.4);
+}
+
+body[data-theme="ocean"] .size-tab,
+body[data-theme="ocean"] .difficulty-tab {
+    background: rgba(5, 191, 219, 0.15);
+    color: #05bfdb;
+    border-color: #05bfdb;
+}
+
+body[data-theme="ocean"] .size-tab.active,
+body[data-theme="ocean"] .difficulty-tab.active {
+    background: rgba(125, 211, 252, 0.25);
+    color: #7dd3fc;
+    border-color: #7dd3fc;
+    box-shadow: 0 0 15px rgba(125, 211, 252, 0.3);
+}
+
+body[data-theme="ocean"] #leaderboard-table th,
+body[data-theme="ocean"] #leaderboard-table td {
+    border-bottom-color: rgba(5, 191, 219, 0.3);
+}
+
+body[data-theme="ocean"] footer {
+    border-top-color: rgba(5, 191, 219, 0.3);
+    color: #e0f7fa;
+}
+
+body[data-theme="ocean"] .completion-message {
+    background: rgba(8, 131, 149, 0.95);
+    border-color: #7dd3fc;
+    color: #e0f7fa;
+}
+
+/* Thicker region borders for ocean theme */
+body[data-theme="ocean"] .board.size-4 .cell:nth-child(2),
+body[data-theme="ocean"] .board.size-4 .cell:nth-child(6),
+body[data-theme="ocean"] .board.size-4 .cell:nth-child(10),
+body[data-theme="ocean"] .board.size-4 .cell:nth-child(14),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(3),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(9),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(15),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(21),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(27),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(33),
+body[data-theme="ocean"] .board.size-9 .cell:nth-child(9n+3),
+body[data-theme="ocean"] .board.size-9 .cell:nth-child(9n+6) {
+    border-right: 4px solid #05bfdb !important;
+}
+
+body[data-theme="ocean"] .board.size-4 .cell:nth-child(5),
+body[data-theme="ocean"] .board.size-4 .cell:nth-child(6),
+body[data-theme="ocean"] .board.size-4 .cell:nth-child(7),
+body[data-theme="ocean"] .board.size-4 .cell:nth-child(8),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(7),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(8),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(9),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(10),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(11),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(12),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(19),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(20),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(21),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(22),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(23),
+body[data-theme="ocean"] .board.size-6 .cell:nth-child(24),
+body[data-theme="ocean"] .board.size-9 .cell:nth-child(n+19):nth-child(-n+27),
+body[data-theme="ocean"] .board.size-9 .cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 4px solid #05bfdb !important;
+}

@@ -1,0 +1,20 @@
+# Database credentials
+api/config.php
+
+# Deployment scripts (contains server credentials)
+upload.ps1
+create-user.sql
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log

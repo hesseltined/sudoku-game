@@ -1,0 +1,570 @@
+/**
+ * Sudoku Game - Base Styles
+ * Version: 1.0.0
+ * Date: 2025-11-20
+ * Author: Doug Hesseltine
+ * Copyright: Technologist.Services 2025
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px 0 30px;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.back-button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.8;
+}
+
+/* Controls */
+.controls-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.controls-header h2 {
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.toggle-btn {
+    padding: 8px 16px;
+    border: 2px solid;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.controls {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.control-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.control-row:last-child {
+    margin-bottom: 0;
+}
+
+.control-row label {
+    font-weight: 600;
+}
+
+#player-name {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+select {
+    padding: 8px 12px;
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+/* Slider */
+.slider-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#difficulty-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+/* Checkbox */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Buttons */
+.button-row {
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    font-weight: 700;
+}
+
+/* HUD */
+.hud {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.hud-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hud-item label {
+    font-weight: 600;
+}
+
+.hud-item span {
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+/* Game Container */
+.game-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.board {
+    display: inline-grid;
+    gap: 0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.board.size-4 {
+    grid-template-columns: repeat(4, 60px);
+    grid-template-rows: repeat(4, 60px);
+}
+
+.board.size-6 {
+    grid-template-columns: repeat(6, 55px);
+    grid-template-rows: repeat(6, 55px);
+}
+
+.board.size-9 {
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.cell:hover:not(.given):not(.completed) {
+    transform: scale(1.05);
+}
+
+.cell.given {
+    font-weight: 700;
+    cursor: default;
+}
+
+.cell.selected {
+    box-shadow: inset 0 0 0 3px;
+}
+
+.cell.error {
+    background: rgba(255, 0, 0, 0.3) !important;
+    animation: shake 0.3s;
+}
+
+.cell.completed {
+    cursor: default;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Box borders for visual grouping - THICK AND VISIBLE */
+/* 4x4 (2x2 boxes) - Thick right border after col 2 */
+.board.size-4 .cell:nth-child(2),
+.board.size-4 .cell:nth-child(6),
+.board.size-4 .cell:nth-child(10),
+.board.size-4 .cell:nth-child(14) {
+    border-right-width: 3px;
+}
+
+/* 4x4 - Thick bottom border after row 2 (cells 5-8) */
+.board.size-4 .cell:nth-child(5),
+.board.size-4 .cell:nth-child(6),
+.board.size-4 .cell:nth-child(7),
+.board.size-4 .cell:nth-child(8) {
+    border-bottom-width: 3px;
+}
+
+/* 6x6 (3x2 boxes) - Thick right border after col 3 (every 6th starting from 3) */
+.board.size-6 .cell:nth-child(3),
+.board.size-6 .cell:nth-child(9),
+.board.size-6 .cell:nth-child(15),
+.board.size-6 .cell:nth-child(21),
+.board.size-6 .cell:nth-child(27),
+.board.size-6 .cell:nth-child(33) {
+    border-right-width: 3px;
+}
+
+/* 6x6 - Thick bottom border after rows 2 and 4 (cells 7-12 and 19-24) */
+.board.size-6 .cell:nth-child(7),
+.board.size-6 .cell:nth-child(8),
+.board.size-6 .cell:nth-child(9),
+.board.size-6 .cell:nth-child(10),
+.board.size-6 .cell:nth-child(11),
+.board.size-6 .cell:nth-child(12),
+.board.size-6 .cell:nth-child(19),
+.board.size-6 .cell:nth-child(20),
+.board.size-6 .cell:nth-child(21),
+.board.size-6 .cell:nth-child(22),
+.board.size-6 .cell:nth-child(23),
+.board.size-6 .cell:nth-child(24) {
+    border-bottom-width: 3px;
+}
+
+/* 9x9 (3x3 boxes) - Thick right border after cols 3 and 6 */
+.board.size-9 .cell:nth-child(9n+3),
+.board.size-9 .cell:nth-child(9n+6) {
+    border-right-width: 3px;
+}
+
+/* 9x9 - Thick bottom border after rows 3 and 6 (cells 19-27 and 46-54) */
+.board.size-9 .cell:nth-child(n+19):nth-child(-n+27),
+.board.size-9 .cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom-width: 3px;
+}
+
+/* Pause Overlay */
+.pause-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    border-radius: 8px;
+}
+
+.pause-message {
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.pause-message h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+/* Completion Message */
+.completion-message {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    border: 3px solid;
+    animation: slideIn 0.5s ease;
+}
+
+.completion-message h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.completion-message p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Number Pad */
+.number-pad {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.number-btn {
+    width: 50px;
+    height: 50px;
+    border: 2px solid;
+    border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.number-btn:hover {
+    transform: scale(1.1);
+}
+
+.number-btn:active {
+    transform: scale(0.95);
+}
+
+/* Leaderboard */
+.leaderboard-section {
+    margin: 40px 0;
+}
+
+.leaderboard-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.size-tabs,
+.difficulty-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.size-tab,
+.difficulty-tab {
+    padding: 10px 20px;
+    border: 2px solid;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.size-tab:hover,
+.difficulty-tab:hover {
+    transform: translateY(-2px);
+}
+
+.size-tab.active,
+.difficulty-tab.active {
+    font-weight: 700;
+}
+
+#leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#leaderboard-table th,
+#leaderboard-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid;
+}
+
+#leaderboard-table th {
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+#leaderboard-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#leaderboard-table td:first-child {
+    font-weight: 700;
+    text-align: center;
+    width: 60px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid;
+    margin-top: 40px;
+    opacity: 0.8;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    
+    .header-top {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .control-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .board.size-4 {
+        grid-template-columns: repeat(4, 50px);
+        grid-template-rows: repeat(4, 50px);
+    }
+    
+    .board.size-6 {
+        grid-template-columns: repeat(6, 45px);
+        grid-template-rows: repeat(6, 45px);
+    }
+    
+    .board.size-9 {
+        grid-template-columns: repeat(9, 40px);
+        grid-template-rows: repeat(9, 40px);
+    }
+    
+    .cell {
+        font-size: 1.2em;
+    }
+    
+    .hud {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .board.size-9 {
+        grid-template-columns: repeat(9, 35px);
+        grid-template-rows: repeat(9, 35px);
+    }
+    
+    .cell {
+        font-size: 1em;
+    }
+    
+    .number-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+}

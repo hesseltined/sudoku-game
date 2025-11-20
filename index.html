@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play Sudoku with multiple board sizes, difficulty levels, and color themes">
+    <title>Sudoku Game | Technologist.Services</title>
+    <link rel="stylesheet" href="css/styles.css?v=1.1.1">
+    <link rel="stylesheet" href="css/themes.css?v=1.1.1">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="https://technologist.services/tools" class="back-button">&lt; Back to Tools</a>
+                <h1>Sudoku</h1>
+            </div>
+            <p class="subtitle">Challenge Your Logic Skills</p>
+        </header>
+        
+        <div class="controls-header">
+            <h2>Game Settings</h2>
+            <button id="toggle-controls" class="toggle-btn">&#9650;</button>
+        </div>
+        
+        <div class="controls" id="controls-panel">
+            <div class="control-row">
+                <input type="text" id="player-name" placeholder="Enter your name" maxlength="64">
+                
+                <label for="board-size">Board Size:</label>
+                <select id="board-size">
+                    <option value="4">4x4 (Beginner)</option>
+                    <option value="6" selected>6x6 (Intermediate)</option>
+                    <option value="9">9x9 (Classic)</option>
+                </select>
+                
+                <label for="theme-selector">Theme:</label>
+                <select id="theme-selector">
+                    <option value="classic" selected>Classic</option>
+                    <option value="dark">Dark Mode</option>
+                    <option value="ocean">Ocean</option>
+                </select>
+            </div>
+            
+            <div class="control-row">
+                <label for="difficulty-slider">Difficulty:</label>
+                <div class="slider-container">
+                    <input type="range" id="difficulty-slider" min="1" max="5" value="3" step="1">
+                    <div class="slider-labels">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-row">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="instant-errors">
+                    <span>Instant Error Highlighting</span>
+                </label>
+            </div>
+            
+            <div class="control-row button-row">
+                <button id="btn-new-game" class="btn btn-primary">New Game</button>
+                <button id="btn-pause" class="btn">Pause</button>
+                <button id="btn-undo" class="btn" disabled>Undo</button>
+                <button id="btn-hint" class="btn">Get Hint (<span id="hints-remaining">3</span>)</button>
+            </div>
+        </div>
+        
+        <div class="hud">
+            <div class="hud-item">
+                <label>Timer:</label>
+                <span id="timer">00:00</span>
+            </div>
+            <div class="hud-item">
+                <label>Hints Left:</label>
+                <span id="hints-display">3 / 3</span>
+            </div>
+        </div>
+        
+        <div class="game-container">
+            <div id="game-board" class="board"></div>
+            <div id="pause-overlay" class="pause-overlay" style="display:none;">
+                <div class="pause-message">
+                    <h2>PAUSED</h2>
+                    <p>Click Resume to continue</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="number-pad" class="number-pad">
+            <!-- Generated dynamically based on board size -->
+        </div>
+        
+        <div id="completion-message" class="completion-message" style="display:none;">
+            <!-- Completion message will be displayed here -->
+        </div>
+        
+        <div class="leaderboard-section">
+            <h2>Leaderboard</h2>
+            
+            <div class="size-tabs">
+                <button class="size-tab" data-size="4">4x4</button>
+                <button class="size-tab" data-size="6">6x6</button>
+                <button class="size-tab" data-size="9">9x9</button>
+            </div>
+            
+            <div class="difficulty-tabs">
+                <button class="difficulty-tab" data-difficulty="1">Level 1</button>
+                <button class="difficulty-tab" data-difficulty="2">Level 2</button>
+                <button class="difficulty-tab" data-difficulty="3">Level 3</button>
+                <button class="difficulty-tab" data-difficulty="4">Level 4</button>
+                <button class="difficulty-tab" data-difficulty="5">Level 5</button>
+            </div>
+            
+            <table id="leaderboard-table">
+                <thead id="leaderboard-header">
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Size</th>
+                        <th>Difficulty</th>
+                        <th>Time</th>
+                        <th>Hints</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="7">Loading...</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Buy Me a Coffee Component -->
+        <div class="bmac-container" style="text-align:center;padding:40px 20px;border-top:1px solid rgba(0, 0, 0, 0.1);margin-top:40px;">
+            <p style="margin-bottom:15px;opacity:0.8;">Find this game helpful? Consider supporting its development!</p>
+            <a href="https://buymeacoffee.com/yesitsmedoug" target="_blank" 
+               class="bmac-button"
+               style="display:inline-block;background:#FFDD00;color:#000;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.3s;">
+                [COFFEE] Buy Me a Coffee
+            </a>
+        </div>
+        
+        <footer>
+            <p>Sudoku Game v1.1.0</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                Author: Doug Hesseltine | Modified: 2025-11-20<br>
+                Copyright &copy; Technologist.Services 2025
+            </p>
+        </footer>
+    </div>
+    
+    <script src="js/sudoku-generator.js?v=1.1.1"></script>
+    <script src="js/puzzle-library.js?v=1.1.1"></script>
+    <script src="js/game.js?v=1.1.1"></script>
+    <script src="js/api-client.js?v=1.1.1"></script>
+    <script src="js/ui.js?v=1.1.1"></script>
+    
+    <style>
+        .bmac-button:hover {
+            background: #FFE44D;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 221, 0, 0.4);
+        }
+        
+        .bmac-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</body>
+</html>
