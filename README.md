@@ -1,7 +1,7 @@
 # Sudoku Game
 
-**Version:** 1.1.0  
-**Date Modified:** 2025-11-20  
+**Version:** 1.1.4  
+**Date Modified:** 2025-11-24  
 **Author:** Doug Hesseltine  
 **Copyright:** Technologist.Services 2025
 
