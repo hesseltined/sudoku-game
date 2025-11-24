@@ -37,7 +37,21 @@ const API = (function() {
      */
     async function getLeaderboard(boardSize, difficulty) {
         try {
-            const data = await request(`leaderboard.php?board_size=${boardSize}&difficulty=${difficulty}`);
+            let url = 'leaderboard.php';
+            const params = [];
+            
+            if (boardSize !== null) {
+                params.push(`board_size=${boardSize}`);
+            }
+            if (difficulty !== null) {
+                params.push(`difficulty=${difficulty}`);
+            }
+            
+            if (params.length > 0) {
+                url += '?' + params.join('&');
+            }
+            
+            const data = await request(url);
             return data;
         } catch (err) {
             console.error('Failed to get leaderboard:', err);

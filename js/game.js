@@ -296,6 +296,13 @@ const SudokuGame = (function() {
     }
     
     /**
+     * Set instant errors mode
+     */
+    function setInstantErrors(enabled) {
+        gameState.instantErrors = enabled;
+    }
+    
+    /**
      * Get current state
      */
     function getState() {
@@ -338,6 +345,7 @@ const SudokuGame = (function() {
         formatTime,
         getGameResult,
         setPlayerName,
+        setInstantErrors,
         getState
     };
 })();

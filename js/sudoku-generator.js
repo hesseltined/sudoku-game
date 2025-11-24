@@ -185,7 +185,7 @@ const SudokuGenerator = (function() {
         
         let removed = 0;
         let attempts = 0;
-        const maxAttempts = totalCells * 2;
+        const maxAttempts = totalCells * 4; // Increased from 2 to 4
         
         while (removed < cellsToRemove && attempts < maxAttempts) {
             if (indices.length === 0) break;
@@ -209,6 +209,13 @@ const SudokuGenerator = (function() {
             }
         }
         
+        // Final validation - ensure puzzle has exactly one solution
+        const finalSolutions = countSolutions(board, size, 2);
+        if (finalSolutions !== 1) {
+            console.warn('Generated puzzle does not have unique solution, regenerating...');
+            return null; // Signal to retry
+        }
+        
         return board;
     }
     
@@ -216,17 +223,39 @@ const SudokuGenerator = (function() {
      * Generate puzzle with difficulty
      */
     function generatePuzzle(size, difficulty) {
-        // Generate complete solution
+        const maxRetries = 5;
+        
+        for (let retry = 0; retry < maxRetries; retry++) {
+            // Generate complete solution
+            const solution = generateSolution(size);
+            
+            // Get target clue count
+            const clueCount = getClueCount(size, difficulty);
+            
+            // Remove cells to create puzzle
+            const puzzle = removeCells(solution, clueCount, size);
+            
+            // If valid puzzle generated, return it
+            if (puzzle !== null) {
+                return {
+                    board: puzzle,
+                    solution: solution,
+                    size: size,
+                    difficulty: difficulty
+                };
+            }
+            
+            console.log(`Retry ${retry + 1}/${maxRetries}: Invalid puzzle, regenerating...`);
+        }
+        
+        // Fallback: return a simpler puzzle if all retries failed
+        console.error('Failed to generate valid puzzle after retries, using simpler configuration');
         const solution = generateSolution(size);
-        
-        // Get target clue count
-        const clueCount = getClueCount(size, difficulty);
-        
-        // Remove cells to create puzzle
+        const clueCount = Math.ceil(size * size * 0.6); // More clues = easier
         const puzzle = removeCells(solution, clueCount, size);
         
         return {
-            board: puzzle,
+            board: puzzle || solution, // Worst case: return full solution
             solution: solution,
             size: size,
             difficulty: difficulty

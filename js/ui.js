@@ -92,6 +92,15 @@
             localStorage.setItem('sudoku-theme', theme);
         });
         
+        // Instant errors checkbox - update game state and re-render
+        const instantErrorsCheckbox = document.getElementById('instant-errors');
+        if (instantErrorsCheckbox) {
+            instantErrorsCheckbox.addEventListener('change', () => {
+                SudokuGame.setInstantErrors(instantErrorsCheckbox.checked);
+                renderBoard();
+            });
+        }
+        
         // Buttons
         elements.btnNewGame.addEventListener('click', startNewGame);
         elements.btnPause.addEventListener('click', togglePause);
